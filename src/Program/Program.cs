@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Library;
+using Ucu.Poo.Persons;
 
 namespace Program
 {
@@ -23,7 +25,8 @@ namespace Program
 
             n3.AddChildren(n6);
             n3.AddChildren(n7);
-
+            Person persona1 = new Person("Juan", "Ottonelli", DateOnly.Parse("13/07/2002"));
+            Console.WriteLine(persona1.Age);
             // visitar el árbol aquí
         }
     }
