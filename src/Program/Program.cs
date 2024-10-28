@@ -12,10 +12,10 @@ namespace Program
             
             Person abuelo = new Person("Carlos", "Gomez", DateOnly.Parse("1945-04-10"));
             Person padre = new Person("Luis", "Gomez", DateOnly.Parse("1975-08-22"));
-            Person hijo1 = new Person("Juan", "Gomez", DateOnly.Parse("2000-07-13"));
-            Person hijo2 = new Person("Ana", "Gomez", DateOnly.Parse("2003-12-15"));
-            Person nieto1 = new Person("Manolo", "Gomez", DateOnly.Parse("2023-11-25"));
-            Person nieto2 = new Person("Juancito", "Gomez", DateOnly.Parse("2024-01-18"));
+            Person hijo1 = new Person("Juan", "Gomez", DateOnly.Parse("1996-07-13"));
+            Person hijo2 = new Person("Ana", "Gomez", DateOnly.Parse("1994-12-15"));
+            Person nieto1 = new Person("Manolo", "Gomez", DateOnly.Parse("2023-01-25"));
+            Person nieto2 = new Person("Juancito", "Gomez", DateOnly.Parse("2022-01-18"));
             Person nieto3 = new Person("Pepe", "Gomez", DateOnly.Parse("2022-09-10"));
             
             Node<Person> nodoAbuelo = new Node<Person>(abuelo);
