@@ -37,3 +37,14 @@ namespace Library
         }
     }
 }
+//La T en la clase Node<T> indica un parámetro de tipo genérico,
+//lo que permite que el tipo de datos almacenado en el nodo sea definido cuando se instancia la clase.
+//Por ejemplo, Node<int> crea un nodo que almacena enteros, mientras que Node<Person> almacena objetos Person.
+//La ventaja de usar T es que hace la clase más flexible,
+//ya que puede usarse con cualquier tipo sin necesidad de escribir una implementación específica para cada uno.
+
+
+
+
+
+
