@@ -44,20 +44,24 @@ namespace roleplay
                 List<Nodo> nivel = niveles[i];
 
                 // Imprimir el nivel actual con la indentación correspondiente
-                Console.WriteLine(new string(' ', indentacion) + string.Join("  ", nivel.ConvertAll(n => $"{n.Nombre} ({n.Edad} años)")));
+                Console.WriteLine(new string(' ', indentacion) + string.Join("   ", nivel.ConvertAll(n => $"{n.Nombre} ({n.Edad} años)")));
 
                 // Agregar líneas de conexión si hay un nivel debajo
                 if (i < niveles.Count - 1 && nivel.Count == 2)
                 {
-                    Console.WriteLine(new string(' ', indentacion) + "   \\             /");
+                    Console.WriteLine(new string(' ', indentacion) + "          \\             /");
                 }
                 else if (i < niveles.Count - 1 && nivel.Count == 1)
                 {
                     Console.WriteLine(new string(' ', indentacion) + "    |");
                 }
+                else if (i < niveles.Count - 1 && nivel.Count == 4)
+                {
+                    Console.WriteLine(new string(' ', indentacion) + "        \\             /                \\             /");
+                }
 
                 // Incrementar la indentación para el siguiente nivel
-                indentacion += 5;
+                indentacion += 10;
             }
         }
     }

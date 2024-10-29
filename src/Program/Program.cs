@@ -16,8 +16,8 @@ namespace roleplay
             Nodo nieto = new Nodo("Manuel", 3);
 
             // Construir árbol
-            padre.PadreIzquierdo = abuelo;
-            padre.PadreDerecho = abuela;
+            padre.PadreIzquierdo = null;
+            padre.PadreDerecho = null;
 
             hijo.PadreIzquierdo = padre;
             hijo.PadreDerecho = madre;
@@ -27,8 +27,8 @@ namespace roleplay
             //hijo.Hijos.Add(nieto2);
            // nieto.Hijos.Add(esposaHijo);
 
-            esposaHijo.PadreDerecho = null;
-            esposaHijo.PadreIzquierdo = null;
+            esposaHijo.PadreDerecho = abuelo;
+            esposaHijo.PadreIzquierdo = abuela;
 
             nieto.PadreDerecho = esposaHijo;
             nieto.PadreIzquierdo = hijo;
