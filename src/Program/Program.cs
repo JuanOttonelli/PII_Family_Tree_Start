@@ -7,14 +7,13 @@ namespace roleplay
         static void Main(string[] args)
         {
             // Crear nodos con nombres y edades
-            Nodo abuelo = new Nodo("Abuelo", 80);
-            Nodo abuela = new Nodo("Abuela", 78);
-            Nodo padre = new Nodo("Padre", 55);
-            Nodo madre = new Nodo("Madre", 53);
-            Nodo hijo = new Nodo("Hijo", 30);
-            Nodo esposaHijo = new Nodo("Esposa del Hijo", 28);
-            Nodo nieto1 = new Nodo("Nieto 1", 5);
-            Nodo nieto2 = new Nodo("Nieto 2", 3);
+            Nodo abuelo = new Nodo("Kazuke", 80);
+            Nodo abuela = new Nodo("Lucia", 78);
+            Nodo padre = new Nodo("Minato", 55);
+            Nodo madre = new Nodo("Kushina", 53);
+            Nodo hijo = new Nodo("Naruto", 30);
+            Nodo esposaHijo = new Nodo("Hinata", 28);
+            Nodo nieto = new Nodo("Manuel", 3);
 
             // Construir árbol
             padre.PadreIzquierdo = abuelo;
@@ -26,16 +25,16 @@ namespace roleplay
             // Añadir relaciones adicionales
             //hijo.Hijos.Add(nieto1);
             //hijo.Hijos.Add(nieto2);
-            //hijo.Hijos.Add(esposaHijo);
+           // nieto.Hijos.Add(esposaHijo);
 
             esposaHijo.PadreDerecho = null;
             esposaHijo.PadreIzquierdo = null;
 
-            nieto1.PadreDerecho = esposaHijo;
-            nieto2.PadreIzquierdo = hijo;
+            nieto.PadreDerecho = esposaHijo;
+            nieto.PadreIzquierdo = hijo;
             // Mostrar la jerarquía desde el hijo hacia arriba
             Arbol arbol = new Arbol();
-            arbol.MostrarJerarquia(hijo);
+            arbol.MostrarJerarquia(nieto);
         }
     }
 }
