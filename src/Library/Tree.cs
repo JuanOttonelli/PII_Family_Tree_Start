@@ -4,7 +4,7 @@ using Ucu.Poo.Persons;
 
 namespace Library
 {
-    public class Arbol
+    public class Tree
     {
         public void MostrarJerarquia(Node<Person> nodoInicial)
         {
