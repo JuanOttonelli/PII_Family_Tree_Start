@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
+using Ucu.Poo.Persons;
 
 namespace Library
 {
     public class Node<T>
     {
         public T Value { get; private set; }
-
+        public Node<Person> PadreIzquierdo { get; set; }
+        public Node<Person> PadreDerecho { get; set; }
         private List<Node<T>> children = new List<Node<T>>();
 
         public Node(T value)

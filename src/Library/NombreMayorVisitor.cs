@@ -3,7 +3,7 @@ using Ucu.Poo.Persons;
 
 namespace Library;
 
-public class NombreMayorVisitor
+public class NombreMayorVisitor :IVisitor<Person>
 {
     public Person HijoMayor { get; set; }
     
