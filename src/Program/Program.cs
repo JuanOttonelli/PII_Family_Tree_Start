@@ -46,11 +46,11 @@ namespace Program
             Console.WriteLine($"La suma de edades es: {visitor.EdadTotal}");
             
             HijoMayorVisitor visitorMayor = new HijoMayorVisitor();
-            visitorMayor.Visit(abueloNode);
+            visitorMayor.Visit(nietoNode);
             Console.WriteLine($"El hijo mayor es: {visitorMayor.HijoMayor.FullName}");
             
             NombreMayorVisitor visitorNombre = new NombreMayorVisitor();
-            visitorNombre.Visit(abueloNode);
+            visitorNombre.Visit(nietoNode);
             Console.WriteLine($"El hijo con el nombre más largo es: {visitorNombre.HijoMayor.FullName}");
 
             
