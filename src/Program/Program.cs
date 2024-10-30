@@ -12,13 +12,13 @@ namespace Program
         
             
             // Crear personas
-            Person abuelo = new Person("Kazuke", "Uzumaki", DateOnly.Parse("21/11/1943")); // 80 años
-            Person abuela = new Person("Lucia", "Uzumaki", DateOnly.Parse("05/03/1946")); // 78 años
-            Person padre = new Person("Minato", "Uzumaki", DateOnly.Parse("18/09/1969")); // 55 años
-            Person madre = new Person("Kushina", "Uzumaki", DateOnly.Parse("27/01/1971")); // 53 años
-            Person hijo = new Person("Naruto", "Uzumaki", DateOnly.Parse("02/06/1994")); // 30 años
-            Person esposaHijo = new Person("Hinata", "Uzumaki", DateOnly.Parse("15/12/1995")); // 28 años
-            Person nieto = new Person("Manuel", "Chouhy", DateOnly.Parse("09/08/2021")); // 3 años
+            Person abuelo = new Person("Kazuke", "Uzumaki", new DateOnly(1943, 11, 21)); // 80 años
+            Person abuela = new Person("Lucia", "Uzumaki", new DateOnly(1946, 03, 05));  // 78 años
+            Person padre = new Person("Minato", "Uzumaki", new DateOnly(1969, 09, 18)); // 55 años
+            Person madre = new Person("Kushina", "Uzumaki", new DateOnly(1971, 01, 27)); // 53 años
+            Person hijo = new Person("Naruto", "Uzumaki", new DateOnly(1994, 06, 02)); // 30 años
+            Person esposaHijo = new Person("Hinata", "Uzumaki", new DateOnly(1995, 12, 15)); // 28 años
+            Person nieto = new Person("Manuel", "Chouhy", new DateOnly(2021, 08, 09)); // 3 años
             
             // Crear nodos de personas
             Node<Person> abueloNode = new Node<Person>(abuelo);
@@ -42,7 +42,7 @@ namespace Program
            
             // visitar el árbol aquí
             SumaEdadVisitor visitor = new SumaEdadVisitor(); //como funcionan los nodos paralelos?
-            visitor.Visit(abueloNode);
+            visitor.Visit(nietoNode);
             Console.WriteLine($"La suma de edades es: {visitor.EdadTotal}");
             
             HijoMayorVisitor visitorMayor = new HijoMayorVisitor();

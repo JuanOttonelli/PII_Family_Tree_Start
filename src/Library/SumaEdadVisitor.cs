@@ -2,55 +2,47 @@
 using System.Collections.Generic;
 using Ucu.Poo.Persons;
 
-namespace Library;
-public class Visitor
+namespace Library
 {
-//public class SumaEdadVisitor: IVisitor<Person>
-    public void MostrarJerarquia(Node<Person> nodoInicial)
+    public class SumaEdadVisitor : IVisitor<Person>
     {
-        // Lista para almacenar cada nivel de ancestros
-        List<List<Node<Person>>> niveles = new List<List<Node<Person>>>();
-        Queue<Node<Person>> cola = new Queue<Node<Person>>();
-        cola.Enqueue(nodoInicial);
+        public int EdadTotal { get; private set; } // Cambiado a private set para control
 
-        // Búsqueda de amplitud desde el hijo hacia los ancestros
-        while (cola.Count > 0)
+        public void Visit(Node<Person> nodoInicial)
         {
-            List<Node<Person>> nivel = new List<Node<Person>>();
-            int tamañoNivel = cola.Count;
+            EdadTotal = 0; // Inicializar en 0 al iniciar la visita
 
-            for (int i = 0; i < tamañoNivel; i++)
+            // Lista para almacenar los niveles de ancestros
+            List<Node<Person>> cola = new List<Node<Person>>(); // Reemplazamos Queue con List
+            cola.Add(nodoInicial);
+
+            while (cola.Count > 0)
             {
-                Node<Person> actual = cola.Dequeue();
-                nivel.Add(actual);
+                List<Node<Person>> nivel = new List<Node<Person>>();
+                int tamañoNivel = cola.Count;
 
-                // Agregar padres y cónyuge a la cola
-                if (actual.PadreIzquierdo != null) cola.Enqueue(actual.PadreIzquierdo);
-                if (actual.PadreDerecho != null) cola.Enqueue(actual.PadreDerecho);
-                        
-                // Agregar hijos a la cola
-                foreach (var hijo in actual.Children)
+                for (int i = 0; i < tamañoNivel; i++)
                 {
-                    cola.Enqueue(hijo);
-                }
-            }
+                    Node<Person> actual = cola[0];
+                    cola.RemoveAt(0); // Eliminamos el primer elemento (simulando Dequeue)
+                    nivel.Add(actual);
 
-            niveles.Insert(0, nivel); // Insertar al inicio para que el nivel superior esté primero
+                    // Sumar la edad del nodo actual
+                    EdadTotal += actual.Value.Age;
+                    
+
+                    // Agregar los padres a la lista para continuar hacia arriba
+                    if (actual.PadreIzquierdo != null) cola.Add(actual.PadreIzquierdo);
+                    if (actual.PadreDerecho != null) cola.Add(actual.PadreDerecho);
+                }
+
+                //niveles.Insert(0, nivel);
+            }
         }
     }
 }
-        
-    
 
-//public int EdadTotal { get; set; }
-    
-//public void Visit(Node<Person> node)
-//{
-//EdadTotal += node.Value.Age;
-        
-//foreach (Node<Person> child in node.Children)
-//{
-//Console.WriteLine(child.Value.Age);
-//Visit(child);  // Recursivamente visita cada nodo
-//}
-//}
+
+
+
+
