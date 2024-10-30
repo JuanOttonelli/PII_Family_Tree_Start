@@ -56,8 +56,8 @@ namespace Program
             
             
             // Mostrar la jerarquía desde el hijo hacia arriba
-            Arbol arbol = new Arbol();
-            arbol.MostrarJerarquia(nietoNode);
+            Tree tree = new Tree();
+            tree.MostrarJerarquia(nietoNode);
         }
     }
 }
