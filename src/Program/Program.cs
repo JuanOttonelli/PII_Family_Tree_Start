@@ -51,7 +51,10 @@ namespace Program
             
             NombreMayorVisitor visitorNombre = new NombreMayorVisitor();
             visitorNombre.Visit(nietoNode);
-            Console.WriteLine($"El hijo con el nombre más largo es: {visitorNombre.HijoMayor.FullName}");
+            foreach (var persona in visitorNombre.PersonasNombreCompletoMasLargo)
+            {
+                Console.WriteLine($"El hijo con el nombre más largo es: {persona.Name} {persona.FamilyName}");
+            }
 
             
             
