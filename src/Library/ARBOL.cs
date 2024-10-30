@@ -1,26 +1,27 @@
 using System;
 using System.Collections.Generic;
+using Ucu.Poo.Persons;
 
-namespace roleplay
+namespace Library
 {
     public class Arbol
     {
-        public void MostrarJerarquia(Nodo nodoInicial)
+        public void MostrarJerarquia(Node<Person> nodoInicial)
         {
             // Lista para almacenar cada nivel de ancestros
-            List<List<Nodo>> niveles = new List<List<Nodo>>();
-            Queue<Nodo> cola = new Queue<Nodo>();
+            List<List<Node<Person>>> niveles = new List<List<Node<Person>>>();
+            Queue<Node<Person>> cola = new Queue<Node<Person>>();
             cola.Enqueue(nodoInicial);
 
             // Búsqueda de amplitud desde el hijo hacia los ancestros
             while (cola.Count > 0)
             {
-                List<Nodo> nivel = new List<Nodo>();
+                List<Node<Person>> nivel = new List<Node<Person>>();
                 int tamañoNivel = cola.Count;
 
                 for (int i = 0; i < tamañoNivel; i++)
                 {
-                    Nodo actual = cola.Dequeue();
+                    Node<Person> actual = cola.Dequeue();
                     nivel.Add(actual);
 
                     // Agregar padres y cónyuge a la cola
@@ -28,7 +29,7 @@ namespace roleplay
                     if (actual.PadreDerecho != null) cola.Enqueue(actual.PadreDerecho);
                     
                     // Agregar hijos a la cola
-                    foreach (var hijo in actual.Hijos)
+                    foreach (var hijo in actual.Children)
                     {
                         cola.Enqueue(hijo);
                     }
@@ -41,10 +42,10 @@ namespace roleplay
             int indentacion = 0;
             for (int i = 0; i < niveles.Count; i++)
             {
-                List<Nodo> nivel = niveles[i];
+                List<Node<Person>> nivel = niveles[i];
 
                 // Imprimir el nivel actual con la indentación correspondiente
-                Console.WriteLine(new string(' ', indentacion) + string.Join("   ", nivel.ConvertAll(n => $"{n.Nombre} ({n.Edad} años)")));
+                Console.WriteLine(new string(' ', indentacion) + string.Join("   ", nivel.ConvertAll(n => $"{n.Value.Name} ({n.Value.Age} años)")));
 
                 // Agregar líneas de conexión si hay un nivel debajo
                 if (i < niveles.Count - 1 && nivel.Count == 2)

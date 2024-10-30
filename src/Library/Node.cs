@@ -1,19 +1,35 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System;
+using Ucu.Poo.Persons;
 
-namespace roleplay
+namespace Library
 {
-    public class Nodo
+    public class Node<T>
     {
-        public string Nombre { get; set; }
-        public int Edad { get; set; }
-        public Nodo PadreIzquierdo { get; set; }
-        public Nodo PadreDerecho { get; set; }
-        public List<Nodo> Hijos { get; set; } = new List<Nodo>();
+        public T Value { get; private set; }
+        public Node<Person> PadreIzquierdo { get; set; }
+        public Node<Person> PadreDerecho { get; set; }
+        private List<Node<T>> children = new List<Node<T>>();
 
-        public Nodo(string nombre, int edad)
+        public Node(T value)
         {
-            Nombre = nombre;
-            Edad = edad;
+            Value = value;
+        }
+
+        public ReadOnlyCollection<Node<T>> Children {
+            get
+            {
+                return this.children.AsReadOnly();
+            }
+        }
+        
+
+        public void AddChildren(Node<T> n)
+        {
+            
+            this.children.Add(n);
+            Console.WriteLine(children.Count);
         }
     }
 }
