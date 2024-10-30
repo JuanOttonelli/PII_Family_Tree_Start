@@ -12,12 +12,12 @@ namespace Program
         
             
             // Crear personas
-            Person abuelo = new Person("Kazuke", "Uzumaki", new DateOnly(1943, 11, 21)); // 80 años
-            Person abuela = new Person("Lucia", "Uzumaki", new DateOnly(1946, 03, 05));  // 78 años
+            Person abuelo = new Person("Kazuke", "Hyuga", new DateOnly(1943, 11, 21)); // 80 años
+            Person abuela = new Person("Lucia", "Punales", new DateOnly(1946, 03, 05));  // 78 años
             Person padre = new Person("Minato", "Uzumaki", new DateOnly(1969, 09, 18)); // 55 años
-            Person madre = new Person("Kushina", "Uzumaki", new DateOnly(1971, 01, 27)); // 53 años
+            Person madre = new Person("Marcela", "Arrate", new DateOnly(1971, 01, 27)); // 53 años
             Person hijo = new Person("Naruto", "Uzumaki", new DateOnly(1994, 06, 02)); // 30 años
-            Person esposaHijo = new Person("Hinata", "Uzumaki", new DateOnly(1995, 12, 15)); // 28 años
+            Person esposaHijo = new Person("Hinata", "Hyuga", new DateOnly(1995, 12, 15)); // 28 años
             Person nieto = new Person("Manuel", "Chouhy", new DateOnly(2021, 08, 09)); // 3 años
             
             // Crear nodos de personas
