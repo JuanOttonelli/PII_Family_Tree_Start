@@ -9,22 +9,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node<int> n1 = new Node<int>(1);
-            Node<int> n2 = new Node<int>(2);
-            Node<int> n3 = new Node<int>(3);
-            Node<int> n4 = new Node<int>(4);
-            Node<int> n5 = new Node<int>(5);
-            Node<int> n6 = new Node<int>(6);
-            Node<int> n7 = new Node<int>(7);
-
-            n1.AddChildren(n2);
-            n1.AddChildren(n3);
-
-            n2.AddChildren(n4);
-            n2.AddChildren(n5);
-
-            n3.AddChildren(n6);
-            n3.AddChildren(n7);
+        
             
             // Crear personas
             Person abuelo = new Person("Kazuke", "Uzumaki", DateOnly.Parse("21/11/1943")); // 80 años
@@ -44,18 +29,17 @@ namespace Program
             Node<Person> esposaHijoNode = new Node<Person>(esposaHijo);
             Node<Person> nietoNode = new Node<Person>(nieto);
 
-
-            // Establecer relaciones familiares en el árbol
-            abueloNode.AddChildren(padreNode);      // Kazuke -> Minato
-            abuelaNode.AddChildren(padreNode);      // Lucia -> Minato
-            //abueloNode.AddChildren(madreNode);
             
-            padreNode.AddChildren(hijoNode);        // Minato -> Naruto
-            madreNode.AddChildren(hijoNode);        // Kushina -> Naruto
-
-            hijoNode.AddChildren(nietoNode);        // Naruto -> Manuel
-            esposaHijoNode.AddChildren(nietoNode);  // Hinata -> Manuel
+            hijoNode.PadreIzquierdo = padreNode;
+            hijoNode.PadreDerecho = madreNode;
             
+            esposaHijoNode.PadreDerecho = abueloNode;
+            esposaHijoNode.PadreIzquierdo = abuelaNode;
+
+            nietoNode.PadreDerecho = esposaHijoNode;
+            nietoNode.PadreIzquierdo = hijoNode;
+
+           
             // visitar el árbol aquí
             SumaEdadVisitor visitor = new SumaEdadVisitor(); //como funcionan los nodos paralelos?
             visitor.Visit(abueloNode);
@@ -69,6 +53,7 @@ namespace Program
             visitorNombre.Visit(abueloNode);
             Console.WriteLine($"El hijo con el nombre más largo es: {visitorNombre.HijoMayor.FullName}");
 
+            
             
             // Mostrar la jerarquía desde el hijo hacia arriba
             Arbol arbol = new Arbol();
