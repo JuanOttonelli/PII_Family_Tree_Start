@@ -21,17 +21,13 @@ namespace roleplay
 
             hijo.PadreIzquierdo = padre;
             hijo.PadreDerecho = madre;
-
-            // Añadir relaciones adicionales
-            //hijo.Hijos.Add(nieto1);
-            //hijo.Hijos.Add(nieto2);
-           // nieto.Hijos.Add(esposaHijo);
-
+            
             esposaHijo.PadreDerecho = abuelo;
             esposaHijo.PadreIzquierdo = abuela;
 
             nieto.PadreDerecho = esposaHijo;
             nieto.PadreIzquierdo = hijo;
+            
             // Mostrar la jerarquía desde el hijo hacia arriba
             Arbol arbol = new Arbol();
             arbol.MostrarJerarquia(nieto);
