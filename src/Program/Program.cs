@@ -41,7 +41,7 @@ namespace Program
 
            
             // visitar el árbol aquí
-            SumaEdadVisitor visitor = new SumaEdadVisitor(); //como funcionan los nodos paralelos?
+            SumaEdadVisitor visitor = new SumaEdadVisitor(); 
             visitor.Visit(nietoNode);
             Console.WriteLine($"La suma de edades es: {visitor.EdadTotal}");
             
@@ -49,9 +49,9 @@ namespace Program
             visitorMayor.Visit(nietoNode);
             Console.WriteLine($"El hijo mayor es: {visitorMayor.HijoMayor.FullName}");
             
-            NombreMayorVisitor visitorNombre = new NombreMayorVisitor();
+            NombreMasLargoVisitor visitorNombre = new NombreMasLargoVisitor();
             visitorNombre.Visit(nietoNode);
-            foreach (var persona in visitorNombre.PersonasNombreCompletoMasLargo)
+            foreach (Person persona in visitorNombre.PersonasNombreCompletoMasLargo)
             {
                 Console.WriteLine($"El hijo con el nombre más largo es: {persona.Name} {persona.FamilyName}");
             }

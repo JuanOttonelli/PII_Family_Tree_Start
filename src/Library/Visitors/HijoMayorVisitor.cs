@@ -9,13 +9,13 @@ public class HijoMayorVisitor :IVisitor<Person>
     
     public void Visit(Node<Person> node)
     {
-        if (HijoMayor is null)
+        if (HijoMayor is null) //se inicializa hijoMayor
         {
             HijoMayor = node.Value;
         }
 
         // Lista para almacenar los niveles de ancestros
-        List<Node<Person>> cola = new List<Node<Person>>(); // Reemplazamos Queue con List
+        List<Node<Person>> cola = new List<Node<Person>>(); 
         cola.Add(node);
 
         while (cola.Count > 0)
@@ -40,7 +40,7 @@ public class HijoMayorVisitor :IVisitor<Person>
                   if (actual.PadreDerecho != null) cola.Add(actual.PadreDerecho);
             }
 
-            //niveles.Insert(0, nivel);
+            
         }
     }
 }

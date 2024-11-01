@@ -4,22 +4,22 @@ using Ucu.Poo.Persons;
 
 namespace Library
 {
-    public class NombreMayorVisitor : IVisitor<Person>
+    public class NombreMasLargoVisitor : IVisitor<Person>
     {
-        public int EdadTotal { get; private set; } = 0;
-
+        
         public Person PersonaNombreCompletoMasLargo { get; private set; }
         public List<Person> PersonasNombreCompletoMasLargo { get; private set; } = new List<Person>();
-
+        
         public void Visit(Node<Person> nodoInicial)
         {
-            // Inicializar con un valor por defecto para PersonaNombreCompletoMasLargo
-            PersonaNombreCompletoMasLargo = new Person("P", "Dummy", new DateOnly(2022, 02, 13));
-
+            
             // Usar una lista como cola para recorrer los nodos
             List<Node<Person>> cola = new List<Node<Person>>();
             cola.Add(nodoInicial);
-
+            if (PersonaNombreCompletoMasLargo is null) //se inicializa hijoMayor
+            {
+                PersonaNombreCompletoMasLargo = nodoInicial.Value;
+            }
             while (cola.Count > 0)
             {
                 // Tomar el primer elemento de la cola
@@ -29,7 +29,7 @@ namespace Library
                 {
                     
                     Node<Person> actual = cola[0];
-                    cola.RemoveAt(0); // Eliminamos el primer elemento (simulando Dequeue)
+                    cola.RemoveAt(0); // Eliminamos el primer elemento
                     nivel.Add(actual);
                     // Sumar la edad del nodo actual
                     int longitudNombreCompletoActual = actual.Value.Name.Length + actual.Value.FamilyName.Length;
@@ -59,26 +59,3 @@ namespace Library
     }
 }
 
-
-
-
-
-//public class NombreMayorVisitor :IVisitor<Person>
-//{
-//public Person HijoMayor { get; set; }
-    
-//public void Visit(Node<Person> node)
-//{
-//HijoMayor ??= new Person("","Dummy",DateOnly.FromDateTime(DateTime.Now));
-        
-        
-//foreach (Node<Person> child in node.Children)
-//{
-//if (child.Value.Name.Length > HijoMayor.Name.Length)
-//{
-//HijoMayor = child.Value;
-//}
-//Visit(child);  // Recursivamente visita cada nodo
-//}
-//}
-//}
